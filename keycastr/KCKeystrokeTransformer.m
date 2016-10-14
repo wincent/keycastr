@@ -168,22 +168,22 @@ static NSString* kShiftKeyString = nil;
     BOOL isShifted = NO;
 	BOOL isCommand = NO;
 
-	if (_modifiers & NSControlKeyMask)
+	if (_modifiers & NSEventModifierFlagControl)
 	{
 		isCommand = YES;
 		[s appendString:kControlKeyString];
 	}
-	if (_modifiers & NSAlternateKeyMask)
+	if (_modifiers & NSEventModifierFlagOption)
 	{
 		isCommand = YES;
 		[s appendString:kAltKeyString];
 	}
-    if (_modifiers & NSCommandKeyMask)
+    if (_modifiers & NSEventModifierFlagCommand)
     {
         isCommand = YES;
         [s appendString:kCommandKeyString];
     }
-	if (_modifiers & NSShiftKeyMask)
+	if (_modifiers & NSEventModifierFlagShift)
 	{
         isShifted = YES;
 		if (isCommand)
