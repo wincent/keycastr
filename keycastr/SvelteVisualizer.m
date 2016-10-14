@@ -67,7 +67,7 @@
 	[bp fill];
 	
 	NSMutableParagraphStyle* ps = [[NSMutableParagraphStyle alloc] init];
-	[ps setAlignment:NSCenterTextAlignment];
+	[ps setAlignment:NSTextAlignmentCenter];
 	
 	NSString* shiftKeyString = [NSString stringWithUTF8String:"\xe2\x87\xa7\x01"];
 	NSString* controlKeyString = [NSString stringWithUTF8String:"\xe2\x8c\x83\x01"];
@@ -86,28 +86,28 @@
 		[ps autorelease], NSParagraphStyleAttributeName,
         nil];
 
-	if (_flags & NSShiftKeyMask)
+	if (_flags & NSEventModifierFlagShift)
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 	else
 		[attr setObject:[NSColor colorWithCalibratedWhite:1 alpha:0.5] forKey:NSForegroundColorAttributeName];
 	size = [shiftKeyString sizeWithAttributes:attr];
 	[shiftKeyString drawInRect:NSMakeRect(0,(30 - size.height) / 2.0,oneQuarter,size.height) withAttributes:attr];
 
-	if (_flags & NSControlKeyMask)
+	if (_flags & NSEventModifierFlagControl)
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 	else
 		[attr setObject:[NSColor colorWithCalibratedWhite:1 alpha:0.5] forKey:NSForegroundColorAttributeName];
 	size = [controlKeyString sizeWithAttributes:attr];
 	[controlKeyString drawInRect:NSMakeRect(oneQuarter,(30 - size.height) / 2.0,oneQuarter,size.height) withAttributes:attr];
 
-	if (_flags & NSAlternateKeyMask)
+	if (_flags & NSEventModifierFlagOption)
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 	else
 		[attr setObject:[NSColor colorWithCalibratedWhite:1 alpha:0.5] forKey:NSForegroundColorAttributeName];
 	size = [altKeyString sizeWithAttributes:attr];
 	[altKeyString drawInRect:NSMakeRect(oneQuarter*2,(30 - size.height) / 2.0,oneQuarter,size.height) withAttributes:attr];
 
-	if (_flags & NSCommandKeyMask)
+	if (_flags & NSEventModifierFlagCommand)
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 	else
 		[attr setObject:[NSColor colorWithCalibratedWhite:1 alpha:0.5] forKey:NSForegroundColorAttributeName];
@@ -161,7 +161,7 @@
 	NSRect r = { 10, 10, 200, 100 };
 	_visualizerWindow = [[NSWindow alloc]
 		initWithContentRect:r
-		styleMask:NSBorderlessWindowMask
+		styleMask:NSWindowStyleMaskBorderless
 		backing:NSBackingStoreBuffered
 		defer:NO];
 	[_visualizerWindow setLevel:NSScreenSaverWindowLevel];

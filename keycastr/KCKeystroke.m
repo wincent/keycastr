@@ -59,7 +59,7 @@
 
 -(BOOL) isCommand
 {
-	return (_modifiers & (NSAlternateKeyMask | NSControlKeyMask | NSCommandKeyMask)) != 0;
+	return (_modifiers & (NSEventModifierFlagOption | NSEventModifierFlagControl | NSEventModifierFlagCommand)) != 0;
 }
 
 -(NSString*) convertToString

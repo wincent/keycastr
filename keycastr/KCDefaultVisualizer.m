@@ -90,7 +90,7 @@
 		NSRect frameRect = NSMakeRect(0, 100, NSWidth(screenFrame), 100);
 		visualizerWindow = [[KCDefaultVisualizerWindow alloc]
 			initWithContentRect:frameRect
-			styleMask:NSBorderlessWindowMask
+			styleMask:NSWindowStyleMaskBorderless
 			backing:NSBackingStoreBuffered
 			defer:NO];
 		[visualizerWindow orderFront:self];
